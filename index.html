@@ -32919,6 +32919,15 @@ Osmo 360 与 X5 的对比： 我会在结束下一阶段的密集比赛后（我
       内容发布进度看板 · 由 AI 自动生成 · 数据截至 2026-10-10
     </div>
   </div>
+  <button id="backToTopBtn" onclick="scrollToTop()" title="返回顶部"
+          style="display:none;position:fixed;bottom:32px;right:32px;z-index:9999;
+                 width:48px;height:48px;border-radius:50%;border:none;cursor:pointer;
+                 background:#1e293b;color:#fff;font-size:22px;align-items:center;justify-content:center;
+                 box-shadow:0 4px 12px rgba(0,0,0,0.25);transition:background 0.2s,transform 0.2s;"
+          onmouseover="this.style.background='#334155';this.style.transform='scale(1.08)';"
+          onmouseout="this.style.background='#1e293b';this.style.transform='scale(1)';">
+    ↑
+  </button>
   
 <script>
 // ── 筛选状态 ──
@@ -33025,6 +33034,20 @@ function applyFilters() {
     row.style.display = matchFilter(poc, regions) ? '' : 'none';
   });
 }
+
+// ── 返回顶部按钮 ──
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+window.addEventListener('scroll', function() {
+  const btn = document.getElementById('backToTopBtn');
+  if (!btn) return;
+  if (window.scrollY > 400) {
+    btn.style.display = 'flex';
+  } else {
+    btn.style.display = 'none';
+  }
+});
 </script>
 
 </body>
